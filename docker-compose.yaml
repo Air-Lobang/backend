@@ -1,0 +1,27 @@
+version: '3.0'
+services:
+  airlobang-db:
+    container_name: airlobang-db
+    image: postgres:14.5
+    env_file:
+      - ./main.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+
+  airlobang-backend:
+    container_name: airlobang-backend
+    image: airlobang-backend:latest
+    build: .
+    env_file: ./main.env
+    restart: always
+    depends_on:
+      - airlobang-db
+    volumes:
+      - .:/opt/app
+    ports: 
+      - 8080:8080
+
+volumes:
+  postgres_data:
