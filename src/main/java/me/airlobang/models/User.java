@@ -1,10 +1,14 @@
 package me.airlobang.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -28,7 +32,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyInwcluded = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "user")
 public class User {
@@ -64,5 +68,11 @@ public class User {
     @Size(min = 16, max = 16)
     @Column(name = "resetPasswordToken")
     private String resetPasswordToken;
+
+    @OneToMany(mappedBy = "reviewer", cascade = CascadeType.ALL)           // reviews written by this user
+    private List<String> writtenReviews;
+
+    @OneToMany(mappedBy = "reviewee", cascade = CascadeType.ALL)           // reviews written about this user  
+    private List<String> reviews;
 
 }

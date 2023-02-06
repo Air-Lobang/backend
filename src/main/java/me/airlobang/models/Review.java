@@ -1,4 +1,5 @@
-package com.example.demo.Model;
+package me.airlobang.models;
+
 import javax.persistence.*;
 import lombok.Data;
 
@@ -18,3 +19,4 @@ public class Review {
     @JoinColumn(name = "reviews_received")          // reviews written about this user  
     private User reviewee; 
 }
+
