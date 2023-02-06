@@ -1,22 +1,22 @@
-package me.airlobang.models;
+// package me.airlobang.models;
 
-import javax.persistence.*;
-import lombok.Data;
+// import javax.persistence.*;
+// import lombok.Data;
 
-@Data
-@Entity
-public class Review {
+// @Data
+// @Entity
+// public class Review {
  
-    private Double rating;
-    private String description;
-    private Boolean isTraveler;
+//     private Double rating;
+//     private String description;
+//     private Boolean isTraveler;
 
-    @ManyToOne
-    @JoinColumn(name = "reviews_written")
-    private User reviewer;                          // reviews written by this user
+//     @ManyToOne
+//     @JoinColumn(name = "reviews_written")
+//     private User reviewer;                          // reviews written by this user
 
-    @ManyToOne
-    @JoinColumn(name = "reviews_received")          // reviews written about this user  
-    private User reviewee; 
-}
+//     @ManyToOne
+//     @JoinColumn(name = "reviews_received")          // reviews written about this user  
+//     private User reviewee; 
+// }
 

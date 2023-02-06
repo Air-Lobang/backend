@@ -69,10 +69,10 @@ public class User {
     @Column(name = "resetPasswordToken")
     private String resetPasswordToken;
 
-    @OneToMany(mappedBy = "reviewer", cascade = CascadeType.ALL)           // reviews written by this user
-    private List<String> writtenReviews;
+    // @OneToMany(mappedBy = "reviewer", cascade = CascadeType.ALL)           // reviews written by this user
+    // private List<String> writtenReviews;
 
-    @OneToMany(mappedBy = "reviewee", cascade = CascadeType.ALL)           // reviews written about this user  
-    private List<String> reviews;
+    // @OneToMany(mappedBy = "reviewee", cascade = CascadeType.ALL)           // reviews written about this user  
+    // private List<String> reviews;
 
 }
